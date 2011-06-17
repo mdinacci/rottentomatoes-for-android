@@ -1,0 +1,7 @@
+social-rottentomatoes
+Classes to use the public API from rottentomatoes.com
+
+CHANGELOG:
+
+Version 1.0:
+- Added movie search support.

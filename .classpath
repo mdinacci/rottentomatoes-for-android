@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/commons-social"/>
+	<classpathentry kind="src" path="/commons-data-json"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="src" path="/commons-network"/>
+	<classpathentry kind="src" path="commons-network_src"/>
+	<classpathentry kind="src" path="commons-data-json_src"/>
+	<classpathentry kind="src" path="commons-data_src"/>
+	<classpathentry exported="true" kind="lib" path="/commons-data-json/libs/gson-1.7.1.jar" sourcepath="/home/marco/dev/not_by_me/libs/google-gson-1.7.1/gson-1.7.1-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/home/marco/dev/not_by_me/libs/google-gson-1.7.1/gson-1.7.1-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="/commons"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
