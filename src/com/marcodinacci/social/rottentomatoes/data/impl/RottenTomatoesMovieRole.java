@@ -4,7 +4,6 @@ import java.util.List;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.text.Html;
 
 import com.marcodinacci.social.rottentomatoes.data.MovieRole;
 

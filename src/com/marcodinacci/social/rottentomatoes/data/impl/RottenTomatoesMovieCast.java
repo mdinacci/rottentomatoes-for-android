@@ -44,6 +44,7 @@ public class RottenTomatoesMovieCast implements MovieCast {
 		dest.writeList(mRoles);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Iterator<MovieRole> iterator() {
 		return (Iterator<MovieRole>)(Object)mRoles.iterator();

@@ -1,7 +1,9 @@
-social-rottentomatoes
+rottentomatoes-for-android
 Classes to use the public API from rottentomatoes.com
 
 CHANGELOG:
+Version 1.1:
+- Refactored not to use any external dependencies except for gson.
 
 Version 1.0:
 - Added movie search support.

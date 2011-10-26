@@ -23,8 +23,6 @@ public class RottenTomatoesConnector extends SimpleConnector {
 	private static final String DEFAULT_ENCODING = "utf-8";
 
 	private static final String MOVIE_SEARCH_ENDPOINT = "/api/public/v1.0/movies.json";
-	private static final String MOVIE_SIMILAR_ENDPOINT = "/api/public/v1.0/movies/$/similar.json";
-	private static final String MOVIE_INFO_ENDPOINT = "/api/public/v1.0/movies/$.json";
 
 	private String mApiKey;
 
@@ -43,12 +41,7 @@ public class RottenTomatoesConnector extends SimpleConnector {
 			response = super.get(query);
 		} catch (ConnectivityFailure inae) {
 			Log.e(TAG, "Request failed, probably internet is not available");
-			/*
-			Handler handler = new Handler();
-			Message msg = handler.obtainMessage();
-			msg.arg1 = ExceptionHandler.CONNECTIVITY_FAILURE;
-			handler.handleMessage(msg);
-			*/
+			// TODO escalate error to UI
 		}
 
 		return response;

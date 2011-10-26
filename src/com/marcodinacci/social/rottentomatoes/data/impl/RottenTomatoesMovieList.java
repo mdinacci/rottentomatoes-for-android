@@ -30,6 +30,8 @@ public class RottenTomatoesMovieList implements MovieList {
 	}
 
 	public Iterator<Movie> iterator() {
+		@SuppressWarnings("unchecked")
+		// Ugly but it's the only way
 		Iterator<Movie> it = (Iterator<Movie>)(Object)movies.iterator();
 		return it;
 	}

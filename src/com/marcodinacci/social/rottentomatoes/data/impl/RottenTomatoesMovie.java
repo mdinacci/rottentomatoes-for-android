@@ -42,6 +42,7 @@ public class RottenTomatoesMovie implements Movie {
 		Log.d(TAG, "Created a new RottenTomatoesMovie");
 	}
 	
+	@SuppressWarnings("unchecked")
 	public RottenTomatoesMovie(Parcel in) {
 		title = in.readString();
 		synopsis = in.readString();
