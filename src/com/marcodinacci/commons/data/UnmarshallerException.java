@@ -8,7 +8,4 @@ public class UnmarshallerException extends RuntimeException {
 	public UnmarshallerException(StackTraceElement[] stackTrace) {
 		setStackTrace(stackTrace);
 	}
-
-	private static final long serialVersionUID = 233362559363957614L;
-
 }

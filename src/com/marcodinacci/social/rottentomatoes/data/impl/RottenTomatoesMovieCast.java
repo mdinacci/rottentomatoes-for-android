@@ -23,7 +23,7 @@ public class RottenTomatoesMovieCast implements MovieCast {
        }
     };
     
-	private List<RottenTomatoesMovieRole> mRoles;// = new ArrayList<MovieRole>();
+	private List<RottenTomatoesMovieRole> mRoles;
    
 	public RottenTomatoesMovieCast(List<RottenTomatoesMovieRole> abridged_cast) {
 		mRoles = abridged_cast;

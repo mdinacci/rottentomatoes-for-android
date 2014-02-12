@@ -37,8 +37,9 @@ public class RottenTomatoesMovieRatings implements MovieRatings {
 	public String getAttribute(String key) {
 		String result = "unsupported key";
 		
-		if(key == Movie.KEY_AVERAGE_SCORE)
+		if(key == Movie.KEY_AVERAGE_SCORE) {
 			result = Integer.toString(getAverageScore());
+		}
 			
 		return result;
 	}

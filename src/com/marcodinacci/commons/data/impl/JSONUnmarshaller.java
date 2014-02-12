@@ -6,6 +6,9 @@ import com.google.gson.Gson;
 import com.marcodinacci.commons.data.Unmarshaller;
 import com.marcodinacci.commons.data.UnmarshallerException;
 
+/**
+ * Unmarshal JSON data. It relies on the Gson library.
+ */
 public final class JSONUnmarshaller<T> implements Unmarshaller<T> {
 
 	@Override

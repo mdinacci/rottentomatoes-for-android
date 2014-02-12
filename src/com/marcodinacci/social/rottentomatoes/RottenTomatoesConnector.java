@@ -10,9 +10,12 @@ import com.marcodinacci.commons.data.Unmarshaller;
 import com.marcodinacci.commons.data.impl.JSONUnmarshaller;
 import com.marcodinacci.commons.network.ConnectivityFailure;
 import com.marcodinacci.commons.network.SimpleConnector;
-import com.marcodinacci.social.rottentomatoes.data.impl.RottenTomatoesMovieList;
-import com.marcodinacci.social.rottentomatoes.data.impl.RottenTomatoesMovieReviewList;
+import com.marcodinacci.social.rottentomatoes.RottenTomatoesMovieList;
+import com.marcodinacci.social.rottentomatoes.RottenTomatoesMovieReviewList;
 
+/**
+ * Manage the connection to the RottenTomatoes website.
+ */
 public class RottenTomatoesConnector extends SimpleConnector {
 
 	private static final String TAG = RottenTomatoesConnector.class.getSimpleName();
@@ -37,7 +40,6 @@ public class RottenTomatoesConnector extends SimpleConnector {
 	public String get(String query) {
 		String response = "";
 		try {
-			
 			response = super.get(query);
 		} catch (ConnectivityFailure inae) {
 			Log.e(TAG, "Request failed, probably internet is not available");
@@ -59,20 +61,23 @@ public class RottenTomatoesConnector extends SimpleConnector {
 					.append(mApiKey).append(QUERY_KEY_PARAM)
 					.append(URLEncoder.encode(movie, DEFAULT_ENCODING));
 		} catch (UnsupportedEncodingException e) {
-			Log.e(TAG, "IMPOSSIBLE");
+			Log.e(TAG, "Shouldn never happen.");
 		}
-		
-		return getMovieListFromJson(get(sb.toString()));
+
+		String response = get(sb.toString());
+		return getMovieListFromJson(response);
 	}
 
 	public RottenTomatoesMovieList getRelatedMovies(String uri) {
-		if(uri.contains(HOST))
+		if(uri.contains(HOST)) {
 			uri = uri.substring(uri.indexOf("com/")+3);
+		}
 		uri += API_KEY_PARAM + mApiKey;
 		
 		Log.d(TAG, "Getting related movies from: " + uri);
-		
-		return getMovieListFromJson(get(uri));
+
+		String response = get(uri);
+		return getMovieListFromJson(response);
 	}
 	/**
 	 * It expects that the uri already contains the movie ID.
@@ -81,37 +86,40 @@ public class RottenTomatoesConnector extends SimpleConnector {
 	 * @return a list of related movies
 	 */
 	public RottenTomatoesMovieList getRelatedMovies(Uri uri) {
-		
-		return getMovieListFromJson(get(uri.toString()));
+		String response = get(uri.toString());
+
+		return getMovieListFromJson(response);
 	}
 
 	/* Transform a JSON document in a RottenTomatoesMovieList */
 	private RottenTomatoesMovieList getMovieListFromJson(String json) {
-		if (Log.isLoggable(TAG, Log.VERBOSE))
+		if (Log.isLoggable(TAG, Log.VERBOSE)) {
 			Log.v(TAG, "Response: " + json);
+		}
 
-		Unmarshaller<RottenTomatoesMovieList> unmarshaller = 
-			new JSONUnmarshaller<RottenTomatoesMovieList>();
+		Unmarshaller<RottenTomatoesMovieList> unmarshaller = new JSONUnmarshaller<RottenTomatoesMovieList>();
 		
 		return unmarshaller.unmarshal(RottenTomatoesMovieList.class, json);
 	}
 
 	public RottenTomatoesMovieReviewList getReviews(String uri) {
-		if(uri.contains(HOST))
-			uri = uri.substring(uri.indexOf("com/")+3);
+		if(uri.contains(HOST)) {
+			uri = uri.substring(uri.indexOf("com/") + 3);
+		}
 		uri += API_KEY_PARAM + mApiKey;
 		
 		Log.d(TAG, "Getting reviews from: " + uri);
-		
-		return getReviewListFromJson(get(uri));
+
+		String response = get(uri);
+		return getReviewListFromJson(response);
 	}
 
 	private RottenTomatoesMovieReviewList getReviewListFromJson(String json) {
-		if (Log.isLoggable(TAG, Log.VERBOSE))
+		if (Log.isLoggable(TAG, Log.VERBOSE)) {
 			Log.v(TAG, "Response: " + json);
+		}
 
-		Unmarshaller<RottenTomatoesMovieReviewList> unmarshaller = 
-			new JSONUnmarshaller<RottenTomatoesMovieReviewList>();
+		Unmarshaller<RottenTomatoesMovieReviewList> unmarshaller = new JSONUnmarshaller<RottenTomatoesMovieReviewList>();
 		
 		return unmarshaller.unmarshal(RottenTomatoesMovieReviewList.class, json);
 	}

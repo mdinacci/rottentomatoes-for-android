@@ -40,8 +40,10 @@ public class RottenTomatoesMovieList implements MovieList {
 	public Movie get(int index) {
 		// FIXME getTotal should work but sometimes I still get an
 		// IndexOutOfBoundsException.
-		if(index < getTotal() && index < movies.size())
+		if(index < getTotal() && index < movies.size()) {
 			return movies.get(index);
+		}
+
 		return null;
 	}
 }

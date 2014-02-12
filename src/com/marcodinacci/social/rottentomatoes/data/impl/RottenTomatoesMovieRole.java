@@ -43,12 +43,13 @@ public class RottenTomatoesMovieRole implements MovieRole {
 	
 	@Override
 	public String toString() {
-		// everything can be null
+		// Everything can be null
 		
 		if(characters == null) {
 			String result = name;
-			if(name == null)
+			if(name == null) {
 				result = "";
+			}
 			
 			return result;
 		}

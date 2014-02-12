@@ -15,12 +15,13 @@ public class RottenTomatoesMovieReviewList implements MovieReviewsList {
 	@Override
 	public int getTotal() {
 		int i = 0;
-		// just in case total is incorrectly reported as 0
-		if(total == 0) {
+		// Just in case total is incorrectly reported as 0
+		if (total == 0) {
 			Iterator<Movie> it = iterator();
 			while(it.hasNext()) {it.next(); i++;}
 			return i;
 		}
+
 		return total;
 	}
 
@@ -37,8 +38,10 @@ public class RottenTomatoesMovieReviewList implements MovieReviewsList {
 
 	@Override
 	public MovieReview get(int index) {
-		if(index < getTotal() && index < reviews.size())
+		if(index < getTotal() && index < reviews.size()) {
 			return reviews.get(index);
+		}
+
 		return null;
 	}
 

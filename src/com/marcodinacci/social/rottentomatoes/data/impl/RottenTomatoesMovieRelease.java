@@ -42,19 +42,22 @@ public class RottenTomatoesMovieRelease implements MovieRelease {
 	@Override
 	public String getAttribute(String key) {
 		String attr = "";
-		if(key == Movie.KEY_RELEASE_DATE_THEATER)
+		if(key == Movie.KEY_RELEASE_DATE_THEATER) {
 			attr = theater;
-		else if (key == Movie.KEY_RELEASE_DATE_DVD)
+		} else if (key == Movie.KEY_RELEASE_DATE_DVD) {
 			attr = dvd;
-		else if (key == Movie.KEY_RELEASE_YEAR)
+		} else if (key == Movie.KEY_RELEASE_YEAR) {
 			attr = getReleaseYear();
+		}
 		
 		return  attr;
 	}
 
 	public String getReleaseYear() {
-		if(theater != null)
+		if(theater != null) {
 			return theater.substring(0, theater.indexOf('-'));
+		}
+
 		return "";
 	}
 
